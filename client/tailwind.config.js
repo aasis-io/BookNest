@@ -1,5 +1,5 @@
-const flowbite = require("flowbite-react/tailwind");
-const plugin = require("tailwind-clip-path");
+import flowbite from "flowbite-react/tailwind";
+import plugin from "tailwind-clip-path";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,7 +14,7 @@ export default {
     extend: {
       fontFamily: {
         acme: ["Acme", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"]
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         "gray-text": "#272d3e",
