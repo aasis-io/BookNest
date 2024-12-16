@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mySwiper {
+  overflow: visible !important;
+  position: relative;
+}
+
+.slider-controler {
+  position: absolute;
+  top: -80px;
+  right: 0;
+}
+
+/* .slider-controler .swiper-button-prev {
+  left: 58% !important;
+  transform: translateX(-58%) !important;
+} */
+
+.slider-controler .slider-arrow {
+  background: #fff;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 1px solid #272d3e;
+}
+
+.slider-controler .slider-arrow ion-icon {
+  font-size: 2rem;
+  color: #222224;
+}
+
+.slider-controler .slider-arrow::after {
+  content: none !important;
+}
+
+.slider-controler .swiper-button-prev {
+  left: -124px;
+  position: absolute;
+  /* Place on the left */
+}
+
+.slider-controler .swiper-button-next {
+  right: 0; /* Place on the right */
+}
+
+.bookLink {
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+}
+
+.singleBook {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.bookPrice span {
+  font-size: 1.75rem;
+}
+
+.singleBookWrapper {
+  max-width: 230px;
+  min-width: 230px;
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0); /* Start and end at the same position */
+  }
+  50% {
+    transform: translateY(-30px); /* Move up by 30px at the halfway point */
+  }
+}
+
+.animate-bounce {
+  animation: moveUpDown 2s ease-in-out infinite; /* Smooth, infinite animation */
+}
+
+.swal-popup {
+  font-size: 1.2rem;
+  animation: fadeIn ease 0.4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.swal-popupBounce {
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  animation: bounceIn 0.5s ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.reviewSwiper {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
