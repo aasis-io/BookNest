@@ -50,7 +50,9 @@ const SingleBook = () => {
           <div className="singleBookWrapper">
             <figure className="mb-4">
               <img
-                src={`http://localhost:3000${book.coverImage}`}
+                src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}${
+                  book.coverImage
+                }`}
                 alt={bookTitle}
                 className="rounded-r-2xl rounded-l-sm singleBook w-full"
               />

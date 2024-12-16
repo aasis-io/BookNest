@@ -167,7 +167,9 @@ const EditBooks = () => {
               {/* Display Current Image */}
               {coverImage && (
                 <img
-                  src={`http://localhost:3000${coverImage}`}
+                  src={`${
+                    import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+                  }${coverImage}`}
                   alt={bookTitle}
                   className="w-32 object-cover mb-2 border border-gray-300 rounded-md"
                 />

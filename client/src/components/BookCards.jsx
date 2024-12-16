@@ -69,7 +69,9 @@ const BookCards = ({ headline, subHeading, books }) => {
                 <Link to={`/book/${book._id}`} className="">
                   <div className="relative bookLink">
                     <img
-                      src={`http://localhost:3000${book.coverImage}`}
+                      src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}${
+                        book.coverImage
+                      }`}
                       alt=""
                     />
                     <div className="absolute top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded">

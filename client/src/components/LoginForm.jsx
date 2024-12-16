@@ -28,10 +28,13 @@ const LoginForm = () => {
     setSuccess("");
 
     try {
-      const response = await axios.post("http://localhost:3000/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/login`,
+        {
+          email,
+          password,
+        }
+      );
 
       if (response.data) {
         // Destructure the token and user details from response

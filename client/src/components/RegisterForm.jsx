@@ -39,12 +39,15 @@ const RegisterForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/register", {
-        name,
-        email,
-        password,
-        role: "user", // Default role
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/register`,
+        {
+          name,
+          email,
+          password,
+          role: "user", // Default role
+        }
+      );
 
       setSuccess(response.data.message);
       setError("");

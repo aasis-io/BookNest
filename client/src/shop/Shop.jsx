@@ -5,7 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 const Shop = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/all-books")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/all-books`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
   });
@@ -19,7 +19,12 @@ const Shop = () => {
         {books.map((book) => (
           <Link to={`/book/${book._id}`} className="">
             <div className="relative bookLink">
-              <img src={`http://localhost:3000${book.coverImage}`} alt="" />
+              <img
+                src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}${
+                  book.coverImage
+                }`}
+                alt=""
+              />
               <div className="absolute top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded">
                 <FaCartShopping className="w-4 h-4 text-white" />
               </div>

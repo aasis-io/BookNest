@@ -109,7 +109,11 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-books/:id",
         element: <EditBooks />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/book/${params.id}`),
+          fetch(
+            `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/book/${
+              params.id
+            }`
+          ),
       },
     ],
   },

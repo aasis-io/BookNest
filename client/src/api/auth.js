@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000";
-
+const API_URL = import.meta.env.VITE_REACT_APP_BACKEND_BASEURL;
 // Admin Login - Store token securely in localStorage
 export const loginAdmin = async (loginData) => {
   try {

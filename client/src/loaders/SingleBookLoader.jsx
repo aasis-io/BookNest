@@ -1,5 +1,7 @@
 export const singleBookLoader = async ({ params }) => {
-  const apiUrl = `http://localhost:3000/book/${params.id}`;
+  const apiUrl = `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/book/${
+    params.id
+  }`;
   try {
     const response = await fetch(apiUrl);
 

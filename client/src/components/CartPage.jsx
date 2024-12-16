@@ -55,7 +55,9 @@ const Cart = () => {
             >
               <div className="flex items-center space-x-4">
                 <img
-                  src={`http://localhost:3000${coverImage}`}
+                  src={`${
+                    import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+                  }${coverImage}`}
                   alt={title}
                   className="w-24 h-32 object-cover rounded-md"
                 />

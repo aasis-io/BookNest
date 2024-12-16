@@ -13,7 +13,9 @@ const Search = () => {
 
     setIsLoading(true);
     try {
-      const response = await fetch(`http://localhost:3000/search?q=${query}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/search?q=${query}`
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch books");
       }
@@ -68,7 +70,9 @@ const Search = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src={`http://localhost:3000${book.coverImage}`} // Book cover image URL
+                  src={`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}${
+                    book.coverImage
+                  }`} // Book cover image URL
                   alt={book.title}
                   className="w-20 h-30 object-cover rounded-md"
                 />

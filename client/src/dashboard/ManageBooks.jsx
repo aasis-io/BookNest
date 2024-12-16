@@ -10,7 +10,7 @@ const ManageBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/all-books")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/all-books`)
       .then((res) => res.json())
       .then((data) => setAllBooks(data));
   }, []);

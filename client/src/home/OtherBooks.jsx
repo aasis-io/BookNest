@@ -5,7 +5,7 @@ const OtherBooks = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/all-books")
+    fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/all-books`)
       .then((res) => res.json())
       .then((data) => setBooks(data.slice(1, 6)));
   });

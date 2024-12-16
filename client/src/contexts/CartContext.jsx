@@ -25,11 +25,14 @@ export const CartProvider = ({ children }) => {
         return;
       }
 
-      const response = await axios.get("http://localhost:3000/api/cart/list", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/cart/list`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setCart(response.data);
     } catch (error) {
@@ -49,7 +52,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       await axios.post(
-        "http://localhost:3000/api/cart/add",
+        `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/cart/add`,
         { bookId, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -103,7 +106,9 @@ export const CartProvider = ({ children }) => {
     if (result.isConfirmed) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/cart/remove/${cartItemId}`,
+          `${
+            import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+          }/api/cart/remove/${cartItemId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -133,7 +138,9 @@ export const CartProvider = ({ children }) => {
 
     try {
       await axios.put(
-        `http://localhost:3000/api/cart/update/${cartItemId}`,
+        `${
+          import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+        }/api/cart/update/${cartItemId}`,
         { quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
