@@ -15,11 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 // Environment Variables (Move sensitive data to `.env` in production)
-const JWT_SECRET =
-  process.env.JWT_SECRET || "lZRZYCMQKg6kl4h5vOZmQ/QTH3VOEOBJ2K8GlFn4eRE="; // Replace in production
-const MONGO_URI =
-  process.env.MONGO_URI ||
-  "mongodb+srv://mern-book-store:mwvAnkdz5PSxmSXJ@cluster0.7soya4o.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"; // Replace with your connection string
+const JWT_SECRET = process.env.JWT_SECRET; // Ensure it’s set in .env
+const MONGO_URI = process.env.MONGO_URI; // Ensure it’s set in .env
 
 const client = new MongoClient(MONGO_URI, {
   serverApi: {
