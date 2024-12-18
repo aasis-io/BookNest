@@ -587,13 +587,14 @@ async function run() {
         );
 
         if (result.matchedCount === 0) {
+          // No matching cart item found
           return res.status(404).json({ message: "Cart item not found." });
         }
 
-        res.json({ message: "Cart item updated successfully." });
+        res.status(200).json({ message: "Cart item updated successfully." });
       } catch (error) {
         console.error("Error updating cart item:", error);
-        res.status(500).json({ message: "Failed to update cart item." });
+        res.status(500).json({ message: "Internal server error." });
       }
     });
 
