@@ -324,31 +324,22 @@ async function run() {
       express.static(path.join(__dirname, "uploads"))
     );
 
-    // Middleware to parse JSON
-    app.use(express.json());
+    //Get All Books
+    app.get("/all-books", async (req, res) => {
+      try {
+        const query = req.query?.category
+          ? { category: req.query.category }
+          : {};
+        const books = await bookCollection.find(query).toArray();
+        res.send(books);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+        res.status(500).send({ message: "Internal server error." });
+      }
+    });
 
-    // Example books data
-    const books = [
-      { id: 1, title: "Book One", author: "Author One" },
-      { id: 2, title: "Book Two", author: "Author Two" },
-    ];
-    // Get All Books
-    // app.get("/all-books", async (req, res) => {
-    //   try {
-    //     const query = req.query?.category
-    //       ? { category: req.query.category }
-    //       : {};
-    //     const books = await bookCollection.find(query).toArray();
-    //     res.send(books);
-    //   } catch (error) {
-    //     console.error("Error fetching books:", error);
-    //     res.status(500).send({ message: "Internal server error." });
-    //   }
-    // });
-
-    // Define the /all-books route
-    app.get("/all-books", (req, res) => {
-      res.json(books); // Respond with the books data
+    app.get("/test", (req, res) => {
+      res.send("Test route working!");
     });
 
     // Get Single Book - No Authentication Required
