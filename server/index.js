@@ -26,6 +26,9 @@ const client = new MongoClient(MONGO_URI, {
     deprecationErrors: true,
   },
 });
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 // Middleware for User Authentication
 const authenticate = (req, res, next) => {
@@ -44,7 +47,6 @@ const authenticate = (req, res, next) => {
   }
 };
 
-// Middleware for Admin Authorization
 // Middleware to authorize only admin users
 const authorizeAdmin = (req, res, next) => {
   const token = req.header("Authorization");
