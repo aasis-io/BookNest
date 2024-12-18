@@ -633,3 +633,5 @@ process.on("SIGINT", async () => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
+
+module.exports = app;
